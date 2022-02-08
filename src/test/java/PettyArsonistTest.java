@@ -36,8 +36,13 @@ public class PettyArsonistTest {
     }
 
     @Test
+    public void canAddABurntBookToTally(){
+        bill.burntABook(book1);
+    }
+
+    @Test
     public void canBurnALibraryBook(){
-        bill.burnBook(book1, libby);
+        bill.burnBookFromLibrary(book1, libby);
         assertEquals(4, libby.getBookCount());
         assertEquals(1, bill.getBurntBookTally());
     }

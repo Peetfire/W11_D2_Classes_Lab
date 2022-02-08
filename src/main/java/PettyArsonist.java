@@ -19,7 +19,12 @@ public class PettyArsonist {
         return this.getBurntBooks().size();
     }
 
-//    public void burnBook(Book book, Library library) {
-//        library.
-//    }
+    public void burntABook(Book book){
+        this.burntBooks.add(book);
+    }
+
+    public void burnBookFromLibrary(Book book, Library library) {
+        library.removeBook(book);
+        this.burntABook(book);
+    }
 }

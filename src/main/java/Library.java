@@ -40,4 +40,8 @@ public class Library {
     private boolean hasCapacity() {
         return this.getBookCount() <= this.getCapacity() - 1;
     }
+
+    public boolean removeBook(Book book) {
+        return this.books.remove(book);
+    }
 }

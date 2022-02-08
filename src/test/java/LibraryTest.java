@@ -37,4 +37,15 @@ public class LibraryTest {
         assertFalse(library.addBook(book1));
     }
 
+    @Test
+    public void canRemoveBook(){
+        library.addBook(book1);
+        assertTrue(library.removeBook(book1));
+    }
+
+    @Test
+    public void canNotRemoveBook(){
+        assertFalse(library.removeBook(book1));
+    }
+
 }

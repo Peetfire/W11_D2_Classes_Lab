@@ -46,4 +46,6 @@ public class PettyArsonistTest {
         assertEquals(4, libby.getBookCount());
         assertEquals(1, bill.getBurntBookTally());
     }
+
+
 }

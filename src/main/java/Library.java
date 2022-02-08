@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
+
     ArrayList<Book> books;
     int capacity;
+    HashMap<String, Integer> genreCounter;
 
     public Library(int capacity) {
         this.books = new ArrayList<>();
         this.capacity = capacity;
+        this.genreCounter = new HashMap<>();
     }
 
     public int getBookCount() {
@@ -30,11 +34,21 @@ public class Library {
     }
 
     public boolean addBook(Book book) {
+
         if(this.hasCapacity()){
             this.books.add(book);
+            this.updateGenreCounter(book);
             return true;
         }
         return false;
+    }
+
+    public void updateGenreCounter(Book book){
+        int count = 1;
+        if(genreCounter.containsKey(book.getGenre())){
+            count = genreCounter.get(book.getGenre()) + 1;
+        }
+        this.genreCounter.put(book.getGenre(), count);
     }
 
     private boolean hasCapacity() {
@@ -43,5 +57,13 @@ public class Library {
 
     public boolean removeBook(Book book) {
         return this.books.remove(book);
+    }
+
+    public int getGenreCount(String genre) {
+        return this.genreCounter.get(genre);
+    }
+
+    public int getAllGenreCount() {
+        return this.genreCounter.keySet().size();
     }
 }

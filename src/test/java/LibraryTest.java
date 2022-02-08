@@ -48,4 +48,27 @@ public class LibraryTest {
         assertFalse(library.removeBook(book1));
     }
 
+    @Test
+    public void genreCounterStartsEmpty(){
+        assertEquals(0, library.getAllGenreCount());
+    }
+
+    @Test
+    public void genreAddedToCounterIfBookAdded(){
+        library.addBook(book1);
+        assertEquals(1, library.getGenreCount("Children"));
+    }
+
+    @Test
+    public void canGetGenreCount(){
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.addBook(book4);
+        library.addBook(book5);
+        assertEquals(3, library.getGenreCount("Children"));
+        assertEquals(1, library.getGenreCount("Fiction"));
+        assertEquals(1, library.getGenreCount("Sci-Fi"));
+    }
+
 }
